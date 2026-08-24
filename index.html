@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ELLY JUNIOR ACADEMY | School Management System</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <div id="loginView" class="login-wrap">
+    <div class="login-card">
+      <div class="brand-mark">EJA</div>
+      <h1>ELLY JUNIOR ACADEMY</h1>
+      <p>School Management System</p>
+      <form id="loginForm">
+        <label>Email<input id="email" type="email" value="admin@ellyjunior.ac.ke" required></label>
+        <label>Password<input id="password" type="password" value="ChangeMe123!" required></label>
+        <button class="primary" type="submit">Sign in as Administrator</button>
+        <small>First version uses local demo storage. Connect Supabase for cloud authentication/database.</small>
+      </form>
+    </div>
+  </div>
+
+  <div id="dashboardView" class="hidden">
+    <aside class="sidebar">
+      <div class="side-brand"><span>EJA</span><div><b>ELLY JUNIOR</b><small>ACADEMY</small></div></div>
+      <nav id="nav">
+        <button data-page="dashboard" class="active">🏠 Dashboard</button>
+        <button data-page="students">👨‍🎓 Students</button>
+        <button data-page="fees">💰 Fees</button>
+        <button data-page="academics">📊 Academics</button>
+        <button data-page="reports">📝 Reports</button>
+        <button data-page="library">📚 Library</button>
+        <button data-page="timetable">🕐 Timetable</button>
+        <button data-page="staff">👩‍🏫 Staff</button>
+        <button data-page="clubs">⚽ Clubs</button>
+        <button data-page="notes">🔒 Private Notes</button>
+      </nav>
+      <button id="logout" class="logout">Sign out</button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><span class="eyebrow">SUPER ADMINISTRATOR</span><h2 id="pageTitle">Dashboard</h2></div>
+        <div class="user-pill">Administrator</div>
+      </header>
+      <section id="content"></section>
+    </main>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
