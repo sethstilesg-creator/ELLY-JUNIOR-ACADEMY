@@ -127,7 +127,6 @@ function openStudent(){
     render("students");
   };
 }
- document.getElementById("studentForm").onsubmit=e=>{e.preventDefault();let o=Object.fromEntries(new FormData(e.target));db.students.push(o);save();closeModal();render("students")}
 }
 function deleteStudent(i){if(confirm("Delete this student?")){db.students.splice(i,1);save();render("students")}}
 function fees(){return `<div class="section-head"><div><h3>Fee Management</h3><span class="muted">Authorised finance records</span></div><button class="primary" onclick="openFee()">+ Record Payment</button></div><div class="table-wrap"><table><thead><tr><th>Date</th><th>Admission</th><th>Student</th><th>Amount</th><th>Reference</th></tr></thead><tbody>${db.fees.length?db.fees.map(f=>`<tr><td>${esc(f.date)}</td><td>${esc(f.adm)}</td><td>${esc(f.student)}</td><td>${money(f.amount)}</td><td>${esc(f.ref)}</td></tr>`).join(""):`<tr><td colspan="5" class="empty">No fee payments recorded.</td></tr>`}</tbody></table></div>`}
