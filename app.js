@@ -1,4 +1,5 @@
 const KEY="eja_smis_v1";
+const SUPABASE_URL="https://xxxvjlrjndtmoldkpeeby.supabase.co";
 const seed={students:[],fees:[],staff:[],books:[],clubs:[],notes:[],marks:[]};
 let db=JSON.parse(localStorage.getItem(KEY)||"null")||seed;
 function save(){localStorage.setItem(KEY,JSON.stringify(db))}
