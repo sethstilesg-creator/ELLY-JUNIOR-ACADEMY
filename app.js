@@ -91,7 +91,42 @@ function openStudent(){
     render("students");
   };
 }
-<label>Admission No.<input name="adm" required></label><label>Full Name<input name="name" required></label><label>Grade<select name="grade">${Array.from({length:9},(_,i)=>`<option>Grade ${i+1}</option>`).join("")}</select></label><label>Gender<select name="gender"><option>Male</option><option>Female</option></select></label><label>Guardian<input name="guardian"></label><label>Phone<input name="phone"></label></div><div class="form-actions"><button type="button" onclick="closeModal()">Cancel</button><button class="primary">Save Student</button></div></form>`);
+function openStudent(){
+  modal(`
+    <h3>Register Student</h3>
+
+    <form id="studentForm">
+      <div class="form-grid">
+        <label>Admission No.<input name="adm" required></label>
+        <label>Full Name<input name="name" required></label>
+        <label>Grade<select name="grade" required>
+          <option value="">Select grade</option>
+          <option>Grade 1</option>
+          <option>Grade 2</option>
+          <option>Grade 3</option>
+          <option>Grade 4</option>
+          <option>Grade 5</option>
+          <option>Grade 6</option>
+        </select></label>
+      </div>
+
+      <button type="submit" class="primary">Save Student</button>
+    </form>
+  `);
+
+  document.getElementById("studentForm").onsubmit = e => {
+    e.preventDefault();
+
+    const o = Object.fromEntries(new FormData(e.target));
+
+    db.students.push(o);
+    save();
+
+    alert("Student registered successfully!");
+    closeModal();
+    render("students");
+  };
+}
  document.getElementById("studentForm").onsubmit=e=>{e.preventDefault();let o=Object.fromEntries(new FormData(e.target));db.students.push(o);save();closeModal();render("students")}
 }
 function deleteStudent(i){if(confirm("Delete this student?")){db.students.splice(i,1);save();render("students")}}
